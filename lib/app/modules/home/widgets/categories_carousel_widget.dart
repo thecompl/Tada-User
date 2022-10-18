@@ -43,7 +43,7 @@ class CategoriesCarouselWidget extends GetWidget<HomeController> {
                     alignment: AlignmentDirectional.topStart,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.only(start: 30, top: 30),
+                        padding: EdgeInsetsDirectional.only(start: 30, top: 35),
                         child: ClipRRect(
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                           child: (_category.image.url.toLowerCase().endsWith('.svg')

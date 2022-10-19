@@ -40,7 +40,7 @@ class SearchController extends GetxController {
     await searchEServices(keywords: textEditingController.text);
     if (showMessage == true) {
       Get.showSnackbar(Ui.SuccessSnackBar(
-          message: "List of services refreshed successfully ".tr));
+          message: "List of services refreshed successfully".tr));
     }
   }
 

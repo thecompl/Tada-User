@@ -37,18 +37,21 @@ class SearchController extends GetxController {
 
   Future refreshSearch({bool showMessage}) async {
     await getCategories();
-    await searchEServices();
+    await searchEServices(keywords: textEditingController.text);
     if (showMessage == true) {
-      Get.showSnackbar(Ui.SuccessSnackBar(message: "List of services refreshed successfully".tr));
+      Get.showSnackbar(Ui.SuccessSnackBar(
+          message: "List of services refreshed successfully".tr));
     }
   }
 
   Future searchEServices({String keywords}) async {
     try {
       if (selectedCategories.isEmpty) {
-        eServices.assignAll(await _eServiceRepository.search(keywords, categories.map((element) => element.id).toList()));
+        eServices.assignAll(await _eServiceRepository.search(
+            keywords, categories.map((element) => element.id).toList()));
       } else {
-        eServices.assignAll(await _eServiceRepository.search(keywords, selectedCategories.toList()));
+        eServices.assignAll(await _eServiceRepository.search(
+            keywords, selectedCategories.toList()));
       }
     } catch (e) {
       Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
